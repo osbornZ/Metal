@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		442BBB692154D62F000F1082 /* MetalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 442BBB682154D62F000F1082 /* MetalContext.m */; };
+		442BBB6B2154DB12000F1082 /* MetalShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 442BBB6A2154DB12000F1082 /* MetalShader.metal */; };
 		4453BB6C21549F6500539746 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4453BB6B21549F6500539746 /* AppDelegate.m */; };
 		4453BB6F21549F6500539746 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4453BB6E21549F6500539746 /* ViewController.m */; };
 		4453BB7221549F6500539746 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4453BB7021549F6500539746 /* Main.storyboard */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		442BBB672154D62F000F1082 /* MetalContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalContext.h; sourceTree = "<group>"; };
+		442BBB682154D62F000F1082 /* MetalContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalContext.m; sourceTree = "<group>"; };
+		442BBB6A2154DB12000F1082 /* MetalShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MetalShader.metal; sourceTree = "<group>"; };
 		4453BB6721549F6500539746 /* HelloMetal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloMetal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4453BB6A21549F6500539746 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4453BB6B21549F6500539746 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 				4453BB6E21549F6500539746 /* ViewController.m */,
 				4453BB8021549FA700539746 /* MetalView.h */,
 				4453BB8121549FA700539746 /* MetalView.m */,
+				442BBB672154D62F000F1082 /* MetalContext.h */,
+				442BBB682154D62F000F1082 /* MetalContext.m */,
+				442BBB6A2154DB12000F1082 /* MetalShader.metal */,
 				4453BB7021549F6500539746 /* Main.storyboard */,
 				4453BB7321549F6600539746 /* Assets.xcassets */,
 				4453BB7521549F6600539746 /* LaunchScreen.storyboard */,
@@ -148,7 +156,9 @@
 			files = (
 				4453BB8221549FA700539746 /* MetalView.m in Sources */,
 				4453BB6F21549F6500539746 /* ViewController.m in Sources */,
+				442BBB692154D62F000F1082 /* MetalContext.m in Sources */,
 				4453BB7A21549F6600539746 /* main.m in Sources */,
+				442BBB6B2154DB12000F1082 /* MetalShader.metal in Sources */,
 				4453BB6C21549F6500539746 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
