@@ -88,7 +88,6 @@
     id<MTLFunction> fragmentFunc = [library newFunctionWithName:@"fragment_my"];
     
 //   check state
-    
     MTLRenderPipelineDescriptor *pipelineDescriptor = [MTLRenderPipelineDescriptor new];
     pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
     pipelineDescriptor.vertexFunction   = vertexFunc;
@@ -132,19 +131,25 @@
 
 - (void)renderTriangle {
     
+//  CAMetalDrawable 协议是MTLDrawable 的扩展，指定了可显示资源对象要符合的MTLTexture协议
     id<CAMetalDrawable> drawable = [self.metalLayer nextDrawable];
     
     id<MTLTexture> texture = drawable.texture;
     
+    
+//  对象附着点要呈现的图形目标
     MTLRenderPassDescriptor *passDescriptor = [MTLRenderPassDescriptor renderPassDescriptor];
     passDescriptor.colorAttachments[0].texture = texture;
     passDescriptor.colorAttachments[0].loadAction  = MTLLoadActionClear;
     passDescriptor.colorAttachments[0].storeAction = MTLStoreActionStore;
     passDescriptor.colorAttachments[0].clearColor  = MTLClearColorMake(0.0, 1.0, 1.0, 1.0);
     
-    id<MTLCommandBuffer> commandBuffer = [self.commandQueue commandBuffer];
-    id <MTLRenderCommandEncoder> commandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:passDescriptor];
     
+//    命令编码器对象
+    id<MTLCommandBuffer> commandBuffer = [self.commandQueue commandBuffer];
+    
+    
+    id <MTLRenderCommandEncoder> commandEncoder = [commandBuffer renderCommandEncoderWithDescriptor:passDescriptor];
     [commandEncoder setRenderPipelineState:self.pipeline];
     [commandEncoder setVertexBuffer:self.positionBuffer offset:0 atIndex:0 ];
     [commandEncoder setVertexBuffer:self.colorBuffer offset:0 atIndex:1 ];
@@ -153,12 +158,21 @@
     [commandEncoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:3 instanceCount:1];
     
     [commandEncoder endEncoding];
-    
+
     [commandBuffer presentDrawable:drawable];
+
+//  对象提交执行
     [commandBuffer commit];
+    
 }
 
 
+//纹理绘制
+- (void)renderTexture {
+//    Encoder  命令编码器协议
+//    MTLBlitCommandEncoder  提供接口用来编码在缓冲和纹理之间的简单拷贝操作
+    
+}
 
 
 
