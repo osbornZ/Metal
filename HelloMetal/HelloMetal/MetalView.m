@@ -13,7 +13,7 @@
 @interface MetalView()
 
 @property (nonatomic, strong) id <MTLDevice> device;
-@property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
+@property (nonatomic, strong) id <MTLCommandQueue> commandQueue;
 
 @property (nonatomic, weak) CAMetalLayer *metalLayer;
 
@@ -33,6 +33,16 @@
 //metal render to layer like CAEAGLLayer
 + (id)layerClass {
     return [CAMetalLayer class];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setUpContext];
+        [self setUpVertexBuffers];
+        [self setUpPipeline];
+    }
+    return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
